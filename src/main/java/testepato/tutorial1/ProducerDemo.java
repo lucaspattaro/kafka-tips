@@ -19,14 +19,14 @@ public class ProducerDemo {
         properties.setProperty(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
 
         // create producer
-        KafkaProducer<String, String> producer = new KafkaProducer<String, String>(properties)
+        KafkaProducer<String, String> producer = new KafkaProducer<String, String>(properties);
 
         // create a producer record
         ProducerRecord<String, String> record = new ProducerRecord<String, String>("first_topic", "hello_world");
 
         // send data
-        producer.send(record)
+        producer.send(record);
         producer.flush();
-        //producer.close();
+        producer.close();
     }
 }
